@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
 import android.content.Context;
 import android.content.Intent;
+import android.view.View;
 import android.widget.RemoteViews;
 
 
@@ -36,6 +37,11 @@ public class SuperStrobeWidget extends AppWidgetProvider {
     @Override
     public void onDisabled(Context context) {
         // Enter relevant functionality for when the last widget is disabled
+    }
+
+    public void openSettings(Context context){
+        // Involve all things related to intent, results, and passing of information
+        Intent intent = new Intent(context, StrobeSettings.class);
     }
 
 //    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
