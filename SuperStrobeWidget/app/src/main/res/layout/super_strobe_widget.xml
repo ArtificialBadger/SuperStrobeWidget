@@ -1,8 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:padding="@dimen/widget_margin" android:background="#09C">
+    android:padding="@dimen/widget_margin" android:background="#09C"
+    android:orientation="vertical">
 
-    <RadioGroup
+    <!--<RadioGroup
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
@@ -35,12 +36,13 @@
             android:text="New RadioButton"
             android:id="@+id/radioButton4"
             android:layout_gravity="center_horizontal" />
+    </RadioGroup>-->
 
-        <Button
-            android:layout_width="266dp"
-            android:layout_height="190dp"
-            android:text="New Button"
-            android:id="@+id/button"
-            android:layout_gravity="center_horizontal" />
-    </RadioGroup>
-</RelativeLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>
