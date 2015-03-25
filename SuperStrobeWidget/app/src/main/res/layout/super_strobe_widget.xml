@@ -21,7 +21,10 @@
             android:text="DISCO TIME"
             android:gravity="center"
             android:layout_gravity="center"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp"
+            android:enabled="true"
+            android:clickable="true"
+            android:id="@+id/discoButton" />
 
         <!---<View
             android:layout_width="1dp"

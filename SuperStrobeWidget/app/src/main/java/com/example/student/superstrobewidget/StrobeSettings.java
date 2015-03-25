@@ -2,6 +2,7 @@ package com.example.student.superstrobewidget;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -28,9 +29,7 @@ public class StrobeSettings extends ActionBarActivity {
 
     public void testOnClick(View view)
     {
-
         StrobeTypeTimers stt = new StrobeTypeTimers(StrobeTypes.STROBE);
         stt.setType(100);
-
     }
 }

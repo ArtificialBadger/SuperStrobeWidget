@@ -1,6 +1,7 @@
 package com.example.student.superstrobewidget;
 
 import android.hardware.Camera;
+import android.util.Log;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -52,6 +53,7 @@ public class StrobeTypeTimers {
 
     private void startStrobeTimer(int millis)
     {
+        Log.i("Flash","Flash");
         TimerTask tt =  new TimerTask() {
             @Override
             public void run() {
