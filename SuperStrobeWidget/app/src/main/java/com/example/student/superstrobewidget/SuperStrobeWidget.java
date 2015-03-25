@@ -50,7 +50,7 @@ public class SuperStrobeWidget extends AppWidgetProvider {
     public void startStrobe()
     {
         StrobeTypeTimers stt = new StrobeTypeTimers(StrobeTypes.STROBE);
-        stt.setType(100);
+        stt.startStrobe(100);
     }
 
     protected PendingIntent getPendingSelfIntent(Context context, String action) {

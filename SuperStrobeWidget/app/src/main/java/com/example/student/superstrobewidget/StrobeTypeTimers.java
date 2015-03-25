@@ -24,19 +24,20 @@ public class StrobeTypeTimers {
         this.strobeType = type;
     }
 
-    public void setType(StrobeTypes type, int millis)
+    public void startStrobe(StrobeTypes type, int millis)
     {
         this.strobeType = type;
-        setType(millis);
+        startStrobe(millis);
     }
 
-    public void setType(int millis)
+    public void startStrobe(int millis)
     {
         switch (this.strobeType) {
             case STROBE:
                 startStrobeTimer(millis);
                 break;
             case PULSE:
+                startPulseTimer(millis);
                 break;
             default:
                 break;
@@ -48,6 +49,59 @@ public class StrobeTypeTimers {
             timer.cancel();
         }
         timer = new Timer();
+    }
+
+    private void startPulseTimer(int millis) {
+
+        TimerTask tt =  new TimerTask() {
+            @Override
+            public void run() {
+                try {
+                    Camera camera = Camera.open();
+
+                    Camera.Parameters parameters = camera.getParameters();
+
+                    parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                    camera.setParameters(parameters);
+
+                    camera.startPreview();
+                    camera.stopPreview();
+
+                    camera.release();
+
+                    camera = Camera.open();
+
+                    parameters = camera.getParameters();
+
+                    parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                    camera.setParameters(parameters);
+
+                    camera.startPreview();
+                    camera.stopPreview();
+
+                    camera.release();
+
+                    camera = Camera.open();
+
+                    parameters = camera.getParameters();
+
+                    parameters.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                    camera.setParameters(parameters);
+
+                    camera.startPreview();
+                    camera.stopPreview();
+
+                    camera.release();
+                } catch (Exception e)
+                {
+                    stopTimers();
+                }
+            }
+        };
+
+        stopTimers();
+        timer.scheduleAtFixedRate(tt, 0, millis);
+
     }
 
 

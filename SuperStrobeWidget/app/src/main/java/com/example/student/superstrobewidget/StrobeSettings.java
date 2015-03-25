@@ -5,14 +5,21 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 
 public class StrobeSettings extends ActionBarActivity {
+
+    private RadioButton strobeButton;
+    private RadioButton pulseButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.strobeButton = (RadioButton) findViewById(R.id.strobe_radio_button);
+        this.pulseButton = (RadioButton) findViewById(R.id.pulse_radio_button);
     }
 
     @Override
@@ -27,9 +34,13 @@ public class StrobeSettings extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void testOnClick(View view)
-    {
-        StrobeTypeTimers stt = new StrobeTypeTimers(StrobeTypes.STROBE);
-        stt.setType(100);
+    public void testOnClick(View view) {
+        if (this.pulseButton.isChecked()) {
+            StrobeTypeTimers stt = new StrobeTypeTimers(StrobeTypes.PULSE);
+            stt.startStrobe(3000);
+        } else {
+            StrobeTypeTimers stt = new StrobeTypeTimers(StrobeTypes.STROBE);
+            stt.startStrobe(100);
+        }
     }
 }
